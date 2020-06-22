@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<AnchorPane prefHeight="600" prefWidth="600" style="-fx-background-color:#DDD"  xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="org.ensak.back_office.controllers.DivsionController">
+    <VBox spacing="30">
+        <BorderPane prefHeight="50" prefWidth="800" style="-fx-background-color:#6AA84F">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <left>
+                <HBox>
+                    <padding>
+                        <Insets left="10" />
+                    </padding>
+                    <ImageView>
+                        <image>
+                            <Image requestedHeight="80" requestedWidth="80" url="@/images/divisions.png" />
+                        </image>
+                    </ImageView>
+                </HBox>
+            </left>
+
+            <right>
+                <Label text="Gestion des Divisions" textFill="white" BorderPane.alignment="TOP_RIGHT">
+                    <padding>
+                        <Insets right="10" top="10" />
+                    </padding>
+                    <font>
+                        <Font name="Bell MT Bold" size="24" />
+                    </font>
+                </Label>
+            </right>
+        </BorderPane>
+
+        <HBox>
+            <!-- Bouton pour ajouter une nouvelle division -->
+            <Button fx:id="ajouterDivision" onAction="#addDivision" prefHeight="40" prefWidth="40" style="-fx-background-color:transparent">
+                <graphic>
+                    <ImageView>
+                        <image>
+                            <Image requestedHeight="40" requestedWidth="40" url="@/images/add.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Label prefHeight="10.0" prefWidth="149.0" text="Nouvelle Division">
+                <padding>
+                    <Insets top="10" />
+                </padding>
+                <font>
+                   <Font name="System Bold" size="18.0" />
+                </font>
+            </Label>
+        </HBox>
+
+        <!--Table de listing des divisions-->
+        <TableView fx:id="tableDivision">
+            <padding>
+                <Insets left="10" right="10" />
+            </padding>
+            <columns>
+                <TableColumn fx:id="numero" prefWidth="128" text="Numéro">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="numero" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="nom" prefWidth="243" text="Nom">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nom" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="chefDivision" prefWidth="248" text="Chef de division">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="chefDivision" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="buton" prefWidth="162" text="Actions">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="consulter" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+
+</AnchorPane>

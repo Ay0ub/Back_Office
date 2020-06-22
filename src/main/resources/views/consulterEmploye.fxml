@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="300" prefWidth="800"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.ensak.back_office.controllers.ConsulterEmployeController">
+    <top>
+        <TitledPane text="Informations sur l'employé">
+            <VBox spacing="30">
+                <GridPane hgap="20" vgap="20">
+
+                    <!--Numéro de l'employe-->
+                    <Label text="Numéro" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+
+                    <Label fx:id="numero" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+
+                    <!--Nom de l'employe-->
+                    <Label text="Nom" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label fx:id="nom" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+
+                    <!--Prénom de l'employé-->
+                    <Label text="Prénom" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label  fx:id="prenom" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+
+                    <!--Email de l'employé-->
+                    <Label text="Email" GridPane.rowIndex="3" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label  fx:id="email" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+
+                    <!--Téléphone de l'employé-->
+                    <Label text="Téléphone" GridPane.rowIndex="4" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label  fx:id="telephone" GridPane.rowIndex="4" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+
+                    <!--Division de l'employé-->
+                    <Label text="Division" GridPane.rowIndex="5" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label  fx:id="division" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                </GridPane>
+            </VBox>
+        </TitledPane>
+    </top>
+
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT" spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <Button fx:id="modifier" onAction="#update" style="-fx-background-color:#009E0F" text="Modifier" textFill="white" />
+            <Button fx:id="supprimer" onAction="#supprimer" style="-fx-background-color:#FFFF00" text="Supprimer" textFill="black" />
+            <Button fx:id="annuler" onAction="#back" style="-fx-background-color:#990000" text="Retour" textFill="white" />
+        </HBox>
+    </bottom>
+</BorderPane>

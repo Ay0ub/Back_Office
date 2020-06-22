@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="300" prefWidth="800" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.ensak.back_office.controllers.ConsulterDivisionController">
+    <top>
+        <TitledPane text="Consulter une division">
+            <VBox spacing="30">
+                <GridPane hgap="20" vgap="20">
+
+                    <!--Numéro de la division-->
+                    <Label text="Numéro" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+
+                    <Label fx:id="Lnumero"  GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+
+                    <!--Nom de la division-->
+                    <Label text="Nom" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label fx:id="Lnom" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+
+                    </Label>
+
+                    <!--Chef de division-->
+                    <Label text="Chef de division"  GridPane.rowIndex="2" GridPane.columnIndex="0">
+                        <font>
+                            <Font name="System" size="15" />
+                        </font>
+                    </Label>
+                    <Label  fx:id="LchefDivision"  GridPane.rowIndex="2" GridPane.columnIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                </GridPane>
+
+                <TitledPane prefWidth="300" text="Listes des employés" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                    <TableView fx:id="employes">
+                        <padding>
+                            <Insets top="10" />
+                        </padding>
+                        <columns>
+                            <TableColumn fx:id="num" prefWidth="128" text="Numéro">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="numero" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="nom" prefWidth="250" text="Nom">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="nom" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="prenom" prefWidth="250" text="Prénom">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="prenom" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+
+                    </TableView>
+                </TitledPane>
+            </VBox>
+        </TitledPane>
+    </top>
+
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT" spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <Button fx:id="modifier" onAction="#modifierDivision" style="-fx-background-color:#009E0F" text="Modifier" textFill="white" />
+            <Button fx:id="supprimer" onAction="#supprimerDivision" style="-fx-background-color:#FFFF00" text="Supprimer" textFill="black" />
+            <Button fx:id="annuler" onAction="#annuler" style="-fx-background-color:#990000" text="Retour" textFill="white" />
+        </HBox>
+    </bottom>
+</BorderPane>

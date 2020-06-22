@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+
+<BorderPane prefHeight="300" prefWidth="800"
+            xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.ensak.back_office.controllers.ProcedureController">
+    <top>
+        <TitledPane text="Informations sur la procédure">
+            <VBox spacing="30">
+                <GridPane hgap="20" vgap="20">
+                    <!--Nom de la procédure-->
+                    <Label text="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="nom" prefWidth="200"
+                               text="" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!--Chef de division-->
+                    <Label text="Division d'Appartenance" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="division"
+                              prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    </ComboBox>
+
+                    <!--Employé -->
+                    <Label text="Employé de division" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="lstEmploye" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    </ComboBox>
+
+                    <Button style="-fx-background-color:#009E0F"
+                            text="Ajouter" textFill="white"
+                            GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                </GridPane>
+
+                <!--Listing des documents à introduire-->
+                <TitledPane prefWidth="300" text="Listes des documents"
+                            GridPane.columnSpan="3" GridPane.rowIndex="3">
+                    <VBox spacing="10">
+                        <HBox spacing="10">
+                            <!--Nom du nouveau document-->
+                            <Label text="Nom du document">
+                                <font>
+                                    <Font name="System Bold" size="15" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="nomDoc" prefWidth="200"/>
+                            <Button style="-fx-background-color:#009E0F"
+                                    text="Ajouter" textFill="white"/>
+                        </HBox>
+
+                        <TableView>
+                            <columns>
+                                <TableColumn prefWidth="128" text="Numéro">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="numero" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="480" text="Nom">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="nom" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="170" text="Actions">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="supprimer" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <Employe nom="Abdoul Karim" numero="100" />
+                                </FXCollections>
+                            </items>
+                        </TableView>
+                    </VBox>
+                </TitledPane>
+
+                <!--Listing des étapes-->
+                <TitledPane prefWidth="300" text="Listes des étapes"
+                            GridPane.columnSpan="3" GridPane.rowIndex="3">
+                    <VBox spacing="10">
+                        <HBox spacing="10">
+                            <!--Nom du nouveau document-->
+                            <Label text="Nom de l'étape">
+                                <font>
+                                    <Font name="System Bold" size="15" />
+                                </font>
+                            </Label>
+                            <TextField fx:id="nomEtape" prefWidth="200"/>
+                            <Button style="-fx-background-color:#009E0F"
+                                    text="Ajouter" textFill="white"/>
+                        </HBox>
+
+                        <TableView>
+                            <columns>
+                                <TableColumn prefWidth="128" text="Numéro">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="numero" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="480" text="Nom">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="nom" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                                <TableColumn prefWidth="170" text="Actions">
+                                    <cellValueFactory>
+                                        <PropertyValueFactory property="supprimer" />
+                                    </cellValueFactory>
+                                </TableColumn>
+                            </columns>
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <Employe nom="Abdoul Karim" numero="100" />
+                                </FXCollections>
+                            </items>
+                        </TableView>
+                    </VBox>
+                </TitledPane>
+            </VBox>
+        </TitledPane>
+    </top>
+
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT" spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+            <Button style="-fx-background-color:#009E0F" text="Enregistrer" textFill="white" />
+            <Button style="-fx-background-color:#990000" text="Annuler" textFill="white" />
+        </HBox>
+    </bottom>
+</BorderPane>

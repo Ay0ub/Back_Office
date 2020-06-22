@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<BorderPane prefHeight="300" prefWidth="800" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="org.ensak.back_office.controllers.AjouterDivsionController">
+    <top>
+        <TitledPane text="Créer/Modifier une division">
+            <VBox spacing="30">
+                <GridPane hgap="20" vgap="20">
+                    <!--Nom de la division-->
+                    <Label text="Nom" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="nomDivision" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!--Chef de division-->
+                    <Label text="Chef de division" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="optionsChefDivision"
+                              promptText="Selectionner le chef de divison"
+                              prefWidth="200"
+                              GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    </ComboBox>
+
+                    <!--Employé -->
+                    <Label text="Employé de division" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="System Bold" size="15" />
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="optionsEmployes" prefWidth="200"
+                              promptText="Selectionner un employé"
+                              GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    </ComboBox>
+
+                    <Button onAction="#ajouterEmploye"
+                            style="-fx-background-color:#009E0F"
+                            text="Ajouter" textFill="white"
+                            GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                </GridPane>
+
+                <TitledPane prefWidth="300" text="Listes des employés" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                    <TableView fx:id="employesAjoutes">
+                        <padding>
+                            <Insets top="10" />
+                        </padding>
+
+                        <columns>
+                            <TableColumn fx:id="numeroEmp" prefWidth="128" text="Numéro">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="numero" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="nomEmp" prefWidth="350" text="Nom">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="nom" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="prenomEmp" prefWidth="350" text="Prénom">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="prenom" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="deleteEmp" prefWidth="128" text="Actions">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="supprimer" />
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </TitledPane>
+            </VBox>
+        </TitledPane>
+    </top>
+
+    <bottom>
+        <HBox alignment="BOTTOM_RIGHT" spacing="10">
+            <padding>
+                <Insets topRightBottomLeft="10" />
+            </padding>
+
+            <Button onAction="#save" style="-fx-background-color:#009E0F"
+                    text="Enregistrer" textFill="white" />
+            <Button onAction="#back" style="-fx-background-color:#990000"
+                    text="Retour" textFill="white" />
+        </HBox>
+    </bottom>
+</BorderPane>
